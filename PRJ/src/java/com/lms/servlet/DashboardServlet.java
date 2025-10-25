@@ -53,8 +53,7 @@ public class DashboardServlet extends HttpServlet {
         // request.getRequestDispatcher("/WEB-INF/views/dashboard.jsp").forward(request, response);
         
         // Tạm thời hiển thị HTML
-        response.setContentType("text/html;charset=UTF-8");
-        response.getWriter().write(getDashboardHTML(user, request));
+        request.getRequestDispatcher("/WEB-INF/views/dashboard.jsp").forward(request, response);
     }
     
     private String getDashboardHTML(User user, HttpServletRequest request) {
