@@ -6,7 +6,7 @@ import com.lms.util.DatabaseConnection;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-class RequestStatusDAO {
+public class RequestStatusDAO {
     
     /**
      * Tìm status theo code

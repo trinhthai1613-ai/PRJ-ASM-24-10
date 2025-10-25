@@ -13,7 +13,7 @@ public class DatabaseConnection {
     // Cấu hình database - THAY ĐỔI THEO MÁY CỦA BẠN
     private static final String DB_URL = "jdbc:sqlserver://localhost:1433;databaseName=LeaveManagementSystem;encrypt=true;trustServerCertificate=true";
     private static final String DB_USER = "sa";
-    private static final String DB_PASSWORD = "YourPassword123!";
+    private static final String DB_PASSWORD = "123456";
     private static final String DB_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     
     // Static block để load driver
