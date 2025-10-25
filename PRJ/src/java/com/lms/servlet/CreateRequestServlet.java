@@ -41,8 +41,8 @@ public class CreateRequestServlet extends HttpServlet {
         // TODO: Forward to JSP
         // request.getRequestDispatcher("/WEB-INF/views/request/create.jsp").forward(request, response);
         
-        response.setContentType("text/html;charset=UTF-8");
-        response.getWriter().write("CREATE REQUEST PAGE - JSP sẽ được tạo sau");
+        request.getRequestDispatcher("/WEB-INF/views/request/create.jsp").forward(request, response);
+
     }
     
     @Override
@@ -68,7 +68,7 @@ public class CreateRequestServlet extends HttpServlet {
             );
             
             request.setAttribute("successMessage", "Tạo đơn thành công! Mã đơn: " + leaveRequest.getRequestCode());
-            request.setAttribute("leaveRequest", leaveRequest);
+            
             
             // TODO: Forward to success page JSP
             response.sendRedirect(request.getContextPath() + "/request/list");
