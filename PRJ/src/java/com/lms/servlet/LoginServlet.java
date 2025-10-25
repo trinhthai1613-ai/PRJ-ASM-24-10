@@ -25,23 +25,18 @@ public class LoginServlet extends HttpServlet {
     }
     
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException {
-        
-        // Nếu đã login rồi thì redirect về dashboard
-        HttpSession session = request.getSession(false);
-        if (session != null && session.getAttribute("user") != null) {
-            response.sendRedirect(request.getContextPath() + "/dashboard");
-            return;
-        }
-        
-        // Forward sang JSP (nếu có JSP)
-        // request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
-        
-        // Tạm thời hiển thị HTML form đơn giản
-        response.setContentType("text/html;charset=UTF-8");
-        response.getWriter().write(getLoginFormHTML(request));
+protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+        throws ServletException, IOException {
+    
+    HttpSession session = request.getSession(false);
+    if (session != null && session.getAttribute("user") != null) {
+        response.sendRedirect(request.getContextPath() + "/dashboard");
+        return;
     }
+    
+    // Forward to JSP
+    request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
+}
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -75,8 +70,8 @@ public class LoginServlet extends HttpServlet {
                 // request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
                 
                 // Tạm thời hiển thị error
-                response.setContentType("text/html;charset=UTF-8");
-                response.getWriter().write(getLoginFormHTML(request));
+                    request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
+
             }
             
         } catch (Exception e) {
